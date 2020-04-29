@@ -4,6 +4,12 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { registerLocaleData } from '@angular/common';
+import localeDa from '@angular/common/locales/da';
+
+// the second parameter 'fr-FR' is optional
+registerLocaleData(localeDa, 'da');
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

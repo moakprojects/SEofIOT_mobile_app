@@ -1,0 +1,12 @@
+.rangeCard {
+    ion-card-header {
+        padding-bottom: 0;  
+    }
+    ion-card-content {
+        padding: 0;
+
+        ion-list {
+            padding-top: 0;
+        }
+    }
+}

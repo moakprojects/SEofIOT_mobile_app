@@ -13,5 +13,85 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card class="rangeCard">
+    <ion-card-header>
+      <ion-card-subtitle>Temperature</ion-card-subtitle>
+      <ion-card-title>{{temp}} °C</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item class="rangeItem">
+          <ion-range 
+            min="0" 
+            max="100" 
+            color="danger" 
+            pin="true"
+            mode="md"
+            debounce=300
+            value={{temp}}
+            #tempRange
+            (ionChange)="rangeChange('temp')">
+            <ion-label slot="start">0 °C</ion-label>
+            <ion-label slot="end">40 °C</ion-label>
+          </ion-range>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="rangeCard">
+    <ion-card-header>
+      <ion-card-subtitle>Humidity</ion-card-subtitle>
+      <ion-card-title>{{hum}} %</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item class="rangeItem">
+          <ion-range 
+            min="0" 
+            max="100" 
+            color="danger" 
+            pin="true"
+            mode="md" 
+            debounce=300
+            value={{hum}}
+            #humRange
+            (ionChange)="rangeChange('hum')">
+            <ion-label slot="start">0 °C</ion-label>
+            <ion-label slot="end">100 °C</ion-label>
+          </ion-range>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="rangeCard">
+    <ion-card-header>
+      <ion-card-subtitle>Light</ion-card-subtitle>
+      <ion-card-title>{{light}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item class="rangeItem">
+          <ion-range 
+            min="0" 
+            max="100" 
+            color="danger" 
+            pin="true"
+            mode="md"
+            debounce=300
+            value={{light}} 
+            #lightRange
+            (ionChange)="rangeChange('light')">
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">100</ion-label>
+          </ion-range>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
