@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Logs
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,43 +13,55 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
+  <ion-card class="logCard" *ngFor="let log of setpointLogs">
     <ion-card-header>
-      Daily summary (27/04/2020)
+      <div class="ownTitle">
+        <span>New setpoints was saved</span>
+        <span>{{log.propertyId | date:'yyyy MMMM dd - H:mm'}}</span>
+      </div>
     </ion-card-header>
   
     <ion-card-content>
-      Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Header
-    </ion-card-header>
-  
-    <ion-card-content>
-      Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Header
-    </ion-card-header>
-  
-    <ion-card-content>
-      Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Header
-    </ion-card-header>
-  
-    <ion-card-content>
-      Content
+      <div class="logContent">
+        <div class="timeBox">
+          <div class="iconBox">
+            <ion-icon name="time-outline"></ion-icon>
+            <span class="iconLabel">time</span>
+          </div>
+          <div>
+            {{log.time}}h
+          </div>
+        </div>
+      </div>
+      <div class="logContent">
+        <div class="tempBox">
+          <div class="iconBox">
+            <ion-icon name="thermometer-outline"></ion-icon>
+            <span class="iconLabel">temperature</span>
+          </div>
+          <div>
+            {{log.temp}} °C
+          </div>
+        </div>
+        <div class="humBox">
+          <div class="iconBox">
+            <ion-icon name="water-outline"></ion-icon>
+            <span class="iconLabel">humidity</span>
+          </div>
+          <div>
+            {{log.hum}} %
+          </div>
+        </div>
+        <div class="lightBox">
+          <div class="iconBox">
+            <ion-icon name="contrast-outline"></ion-icon>
+            <span class="iconLabel">light</span>
+          </div>
+          <div>
+            {{log.light}} lux
+          </div>
+        </div>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

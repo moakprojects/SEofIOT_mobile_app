@@ -1,0 +1,91 @@
+.logCard {
+    .ownTitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span:nth-child(2) {
+            color: #b7b7b7;
+            font-size: 11px;
+            position: relative;
+            top: 3px;
+        }
+    }
+
+    ion-card-content {
+        display: flex;
+        flex-direction: row;
+
+        .logContent {
+            width: 50%;
+
+            .timeBox,
+            .tempBox,
+            .humBox,
+            .lightBox {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .iconBox {
+                    margin-bottom: 5px;
+                }
+
+                div:nth-child(2) {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                ion-icon {
+                    top: 5px;
+                    position: relative;
+                }
+
+                .iconLabel {
+                    margin-left: 2px;
+                    font-size: 10px;
+                    position: relative;
+                    top: 3px;                
+                }
+            }
+
+            .tempBox,
+            .humBox,
+            .lightBox {
+                flex-direction: row;
+                justify-content: space-between;
+
+                .iconBox {
+                    margin-left: 15px;
+                    margin-bottom: 0;
+                }
+
+                div:nth-child(2) {
+                    margin-right: 15px;
+                    font-size: 15px;
+                    font-weight: normal;
+                }
+
+                ion-icon {
+                    top: 2px;
+                }
+
+                .iconLabel {
+                    top: -1px;
+                }
+            }
+        }
+
+        .logContent:nth-child(1) {
+            border-right: 1px solid;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .logContent:nth-child(2) {
+            border-left: 1px solid;
+        }
+    }
+}

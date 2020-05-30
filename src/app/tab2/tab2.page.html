@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Setpoints
     </ion-title>
+    <ion-button expand="block" shape="round" (click)="saveSetpoints()">Save</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -13,9 +14,36 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="sectionWOcard">
+    <div class="ownRangeTitle">
+      <div class="titleContainer">
+        <span>Time</span>
+      </div>
+      <div class="valueContainer">
+        <span>{{setTime}} h</span>
+      </div>
+    </div>
+    <ion-list lines="none">
+      <ion-item class="rangeItem">
+        <ion-range
+          class="timeRange"
+          min="0" 
+          max="23" 
+          color="medium"
+          mode="md"
+          (ionChange)="timeChange()"
+          [(ngModel)]="setTime">
+          <ion-label slot="start">0h</ion-label>
+          <ion-label slot="end">23h</ion-label>
+        </ion-range>
+      </ion-item>
+    </ion-list>
+    <p class="description">Choose the hour value and set the desired lowest values for the given time.</p>
+  </div>
+
   <ion-card class="rangeCard">
     <ion-card-header>
-      <ion-card-subtitle>Temperature</ion-card-subtitle>
+      <ion-card-subtitle>Temperature<span class="normalRange">Normal values: 21°C-25°C</span></ion-card-subtitle>
       <ion-card-title>{{temp}} °C</ion-card-title>
     </ion-card-header>
   
@@ -24,7 +52,7 @@
         <ion-item class="rangeItem">
           <ion-range 
             min="0" 
-            max="100" 
+            max="40" 
             color="danger" 
             pin="true"
             mode="md"
@@ -42,7 +70,7 @@
 
   <ion-card class="rangeCard">
     <ion-card-header>
-      <ion-card-subtitle>Humidity</ion-card-subtitle>
+      <ion-card-subtitle>Humidity<span class="normalRange">Normal values: 30%-65%</span></ion-card-subtitle>
       <ion-card-title>{{hum}} %</ion-card-title>
     </ion-card-header>
   
@@ -69,8 +97,8 @@
 
   <ion-card class="rangeCard">
     <ion-card-header>
-      <ion-card-subtitle>Light</ion-card-subtitle>
-      <ion-card-title>{{light}}</ion-card-title>
+      <ion-card-subtitle>Light<span class="normalRange">Normal values: 500lux-1000lux</span></ion-card-subtitle>
+      <ion-card-title>{{light}} lux</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -78,7 +106,7 @@
         <ion-item class="rangeItem">
           <ion-range 
             min="0" 
-            max="100" 
+            max="2000" 
             color="danger" 
             pin="true"
             mode="md"
@@ -86,8 +114,8 @@
             value={{light}} 
             #lightRange
             (ionChange)="rangeChange('light')">
-            <ion-label slot="start">0</ion-label>
-            <ion-label slot="end">100</ion-label>
+            <ion-label slot="start">0 lux</ion-label>
+            <ion-label slot="end">2000 lux</ion-label>
           </ion-range>
         </ion-item>
       </ion-list>

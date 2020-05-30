@@ -17,6 +17,7 @@ $RECYCLE.BIN/
 log.txt
 npm-debug.log*
 
+/src/app/credential.ts
 /.idea
 /.ionic
 /.sass-cache

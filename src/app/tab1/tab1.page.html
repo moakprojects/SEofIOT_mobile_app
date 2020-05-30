@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      <img src="/assets/hulitelogo_sajt.png" alt="app logo"> hulite
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,12 +13,32 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="warningBlock">
+    <div class="title">Warnings</div>
+    <div class="noProblem" *ngIf="warning.length === 0; else warningBlock">All values are fine, no warnings</div>
+    <ng-template #warningBlock>
+      <div *ngFor="let w of warning">
+        <p class="label">{{w.title}}</p>
+        <div class="valueBlock">
+          <p>Time <span>{{w.time}}</span></p>
+          <p>Setpoint <span>{{w.setpoint}}</span></p>
+          <p>Value <span>{{w.value}}</span></p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
   <ion-card>
     <ion-card-header>
-      Line Chart
+      Real time values
     </ion-card-header>
     <ion-card-content>
-      <canvas #lineCanvas></canvas>
+      <div class="topCanvas">
+        <canvas #lineCanvas></canvas>
+      </div>
+      <div class="belowCanvas">
+        <canvas #timeCanvas></canvas>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

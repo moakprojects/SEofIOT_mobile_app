@@ -10,3 +10,74 @@
         }
     }
 }
+
+.normalRange {
+    position: absolute;
+    right: 0;
+    font-size: 8px;
+    top: 6px;
+    color: #949494;
+}
+
+ion-button {
+    width: 25%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    --background: rgba(75,192,192,1);
+}
+
+.sectionWOcard {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(236, 236, 236);
+
+    .description {
+        margin: 0;
+        padding: 0 73px;
+        font-size: 11px;
+        text-align: center;
+        position: relative;
+        top: -8px;
+        color: #949494;
+    }
+}
+
+.ownRangeTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    color: rgb(115, 115, 115);
+    position: relative;
+    top: 10px;
+    z-index: 1;
+    font-size: 13px;
+
+    .titleContainer {
+        padding-right: 5px;
+    }
+
+    .valueContainer {
+        padding-left: 5px;
+        font-size: 15px;
+        font-weight: bold;
+
+        span {
+            position: absolute;
+            top: -0.5px;
+        }
+    }
+}
+
+.timeRange {
+    --bar-height: 15px;
+    --height: 1px;
+    --bar-border-radius: 10px;
+    --knob-size: 35px;
+
+    ion-label {
+        margin-right: 20px;
+        margin-left: 20px;
+        font-size: 15px;
+    }
+}

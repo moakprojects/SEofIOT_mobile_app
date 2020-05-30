@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Historical charts
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,13 +16,14 @@
   <ion-list>
     <ion-item>
       <ion-label>Time period</ion-label>
-      <ion-select placeholder="Today">
-        <ion-select-option value="l1">Today</ion-select-option>
-        <ion-select-option value="l2">Last 2 days</ion-select-option>
-        <ion-select-option value="l5">Last 5 days</ion-select-option>
-        <ion-select-option value="l7">Last 7 days</ion-select-option>
-        <ion-select-option value="2w">Last 2 weeks</ion-select-option>
-        <ion-select-option value="5w">Last 5 weeks</ion-select-option>
+      <ion-select placeholder="Today" (ionChange)="onChange($event)">
+        <ion-select-option value="1">Today</ion-select-option>
+        <ion-select-option value="2">Last 2 days</ion-select-option>
+        <ion-select-option value="5">Last 5 days</ion-select-option>
+        <ion-select-option value="7">Last 7 days</ion-select-option>
+        <ion-select-option value="14">Last 2 weeks</ion-select-option>
+        <ion-select-option value="35">Last 5 weeks</ion-select-option>
+        <ion-select-option value="0">All data</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -30,10 +31,10 @@
   <ion-card class="rangeCard">
     <ion-card-header>
       <ion-card-subtitle>Temperature</ion-card-subtitle>
-      <ion-card-title>current: 26.8 °C</ion-card-title>
+      <ion-card-title>current: {{temps[temps.length - 1] | number:'1.0-2'}} °C</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
+    <ion-card-content class="tempCanvas">
       <canvas #lineCanvasTemp></canvas>
     </ion-card-content>
   </ion-card>
@@ -41,10 +42,10 @@
   <ion-card class="rangeCard">
     <ion-card-header>
       <ion-card-subtitle>Humidity</ion-card-subtitle>
-      <ion-card-title>current: 45 %</ion-card-title>
+      <ion-card-title>current: {{hums[hums.length - 1] | number:'1.0-2'}} %</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
+    <ion-card-content class="humCanvas">
       <canvas #lineCanvasHum></canvas>
     </ion-card-content>
   </ion-card>
@@ -52,10 +53,10 @@
   <ion-card class="rangeCard">
     <ion-card-header>
       <ion-card-subtitle>Light</ion-card-subtitle>
-      <ion-card-title>current: 23</ion-card-title>
+      <ion-card-title>current: {{light_b[light_b.length - 1] | number:'1.0-2'}} / {{light_b[light_r.length - 1] | number:'1.0-2'}} lux</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
+    <ion-card-content class="lightCanvas">
       <canvas #lineCanvasLight></canvas>
     </ion-card-content>
   </ion-card>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">hulite</string>
+    <string name="title_activity_main">hulite</string>
+    <string name="package_name">io.hulite.app</string>
+    <string name="custom_url_scheme">io.hulite.app</string>
+</resources>

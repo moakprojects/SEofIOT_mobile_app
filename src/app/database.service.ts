@@ -4,7 +4,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { isNullOrUndefined } from 'util';
 
 export interface SensorData {
@@ -26,8 +26,8 @@ export class DatabaseService {
     return this.db.collection<SensorData>("fromPycom").valueChanges();
   }
 
-  setSetpoints(temp: number, hum: number, light: number) {
-    this.db.collection("setpoints").doc("user").set({
+  setSetpoints(time: number, temp: number, hum: number, light: number) {
+    this.db.collection("setpoints").doc(time.toString()).set({
       temp: temp,
       hum: hum,
       light: light
@@ -35,7 +35,7 @@ export class DatabaseService {
   }
 
   checkSetPointChanges(): Observable<any> {
-    return this.db.collection("setpoints").doc("user").valueChanges();
+    return this.db.collection("setpoints").valueChanges({ idField: 'propertyId' });
   }
 
   getSetPoints(): Observable<any> {
@@ -46,5 +46,18 @@ export class DatabaseService {
         observable.complete();
       })
     })
+  }
+
+  saveSetpointLog(date: Date, time: number, temp: number, hum: number, light: number) {
+    this.db.collection("setpointLogs").doc(date.toString()).set({
+      time: time,
+      temp: temp,
+      hum: hum,
+      light: light
+    })
+  }
+
+  getSetpointLogs(): Observable<any> {
+    return this.db.collection("setpointLogs").valueChanges({ idField: 'propertyId' });
   }
 }
